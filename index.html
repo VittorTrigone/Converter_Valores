@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-dark">
+
+
+
+
+
+    <div class="container-sm text-center card p-0" style="max-width: 45%; margin-top: 350px;">
+        <div class="card-header">
+            <h1 class="text-center">Converter Valores</h1>
+        </div>
+        <div class="card-body">
+                <div class="row row m-0 g-0 p-0">
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Valor</span>
+                            </div>
+                            <div class="input-group-prepend">
+                                <input id="valor" type="text" aria-label="Valor" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text">Unidades</input></label>
+                            </div>
+                            <div class="input-group-prepend">
+                                <select id="converter" onclick="operacao()" class="input-group-text" style="width: 280px;">
+                                <option selected>Converter...</option>
+                                <option value="Unidade1">C° para F°</option>
+                                <option value="Unidade2">Metro para Centímetro</option>
+                                <option value="Unidade3">Quilograma para Grama</option>
+                                <option value="Unidade4">Metros/s para Quilômetros/h</option>
+                                <option value="Unidade5">Segundo para Minutos</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row m-0 g-0 p-0">
+                    <div class="col">
+                        <input style="width: 270px;" class="input-group-text" id="resultado" type="text" disabled></input>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Fórmula</span>
+                            </div>
+                            <div class="input-group-prepend">
+                                <input style="width: 289px;" class="input-group-text" id="formula" type="text" disabled></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function operacao() {
+            var valor, resultado, formula;
+
+            valor = parseFloat(document.getElementById("valor").value);
+            converter = document.getElementById("converter").value;
+
+            switch (converter) {
+                case "Unidade1":
+                    resultado = (valor * 1.8 + 32).toFixed(1);
+                    formula = "Valor x 1.8 + 32";
+                    break;
+                case "Unidade2":
+                    resultado = valor * 100;
+                    formula = "Valor x 100";
+                    break;
+                case "Unidade3":
+                    resultado = valor * 1000;
+                    formula = "Valor x 1000";
+                    break;
+                case "Unidade4":
+                    resultado = (valor * 36).toFixed(1);
+                    formula = "Valor x 36";
+                    break;
+                case "Unidade5":
+                    resultado = (valor / 60).toFixed(7);
+                    formula = "Valor ÷ 60";
+                    break;
+            }
+
+            document.getElementById("formula").value = formula;
+            document.getElementById("resultado").value = resultado;
+        }
+    </script>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
